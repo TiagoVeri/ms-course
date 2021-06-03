@@ -25,8 +25,7 @@ public class WorkerResource {
 	
 	private static Logger logger = 	LoggerFactory.getLogger(WorkerResource.class);
 	
-	@Value("${test.config}")
-	private String getConfig;
+
 	
 	@Autowired
 	private Environment env;
@@ -42,7 +41,7 @@ public class WorkerResource {
 	
 	@GetMapping(value = "/configs")
 	public ResponseEntity<Void> getConfigs(){
-			logger.info("CONFIG =" + getConfig);
+		//	logger.info("CONFIG =" + getConfig);
 			return ResponseEntity.noContent().build();
 	}
 	
