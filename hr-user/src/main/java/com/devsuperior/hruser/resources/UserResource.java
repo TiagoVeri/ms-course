@@ -18,17 +18,15 @@ public class UserResource {
 	@Autowired
 	private UserRepository repository;
 	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<User> findById(@PathVariable Long id) {
+		User obj = repository.findById(id).get();
+		return ResponseEntity.ok(obj);
+	}	
 	
-	@GetMapping(value="/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id){
-		User user = repository.findById(id).get();
-		return ResponseEntity.ok(user);
-	}
-	
-	@GetMapping(value="/search")
-	public ResponseEntity<User> findByEmail(@RequestParam String email){
-		User user = repository.findByEmail(email);
-		return ResponseEntity.ok(user);
+	@GetMapping(value = "/search")
+	public ResponseEntity<User> findByEmail(@RequestParam String email) {
+		User obj = repository.findByEmail(email);
+		return ResponseEntity.ok(obj);
 	}
 }
-

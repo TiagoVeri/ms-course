@@ -1,4 +1,5 @@
 package com.devsuperior.hroauth.entities;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
@@ -16,7 +17,7 @@ public class User implements UserDetails, Serializable {
 	private String name;
 	private String email;
 	private String password;
-
+	
 	private Set<Role> roles = new HashSet<>();
 	
 	public User() {

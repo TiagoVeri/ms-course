@@ -10,14 +10,13 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @RefreshScope
 @Configuration
 public class AppConfig {
-	
+
 	@Value("${jwt.secret}")
 	private String jwtSecret;
 	
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-		//Key de assinatura apenas para teste Jamais deixar key amostra
 		tokenConverter.setSigningKey(jwtSecret);
 		return tokenConverter;
 	}

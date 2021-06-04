@@ -5,17 +5,17 @@ import org.springframework.stereotype.Service;
 
 import com.devsuperior.hrpayroll.entities.Payment;
 import com.devsuperior.hrpayroll.entities.Worker;
-import com.devsuperior.hrpayroll.feignclients.WorkerFeignClients;
+import com.devsuperior.hrpayroll.feignclients.WorkerFeignClient;
 
 @Service
 public class PaymentService {
 	
 	@Autowired
-	private WorkerFeignClients workerFeignClients;
-	
+	private WorkerFeignClient workerFeignClient;
+
 	public Payment getPayment(long workerId, int days) {
-		
-		Worker worker = workerFeignClients.findById(workerId).getBody();
+				
+		Worker worker = workerFeignClient.findById(workerId).getBody();
 		return new Payment(worker.getName(), worker.getDailyIncome(), days);
 	}
 }
